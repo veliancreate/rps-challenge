@@ -28,4 +28,3 @@ require 'capybara/cucumber'
 require 'cucumber/rspec/doubles'
 
 Capybara.app = Sinatra::Application
-

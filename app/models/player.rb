@@ -1,5 +1,11 @@
 class Player
-
   attr_accessor :name, :selection
 
-end  
+  def initialize
+    @selection = nil
+  end
+
+  def computer_selection
+    @selection = [:rock, :paper, :scissors].sample
+  end
+end
