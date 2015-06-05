@@ -1,6 +1,6 @@
-before '/one_player/*' do 
+before '/one_player/*' do
   @action = 'one_player'
-end  
+end
 
 get '/one_player/start_game' do
   new_player = Player.new
@@ -12,7 +12,7 @@ end
 
 post '/one_player/enter_name' do
   player.name = params[:name]
-  redirect 'one_player/game'
+  erb :one_player
 end
 
 get '/one_player/game' do

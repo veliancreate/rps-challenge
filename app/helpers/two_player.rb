@@ -1,7 +1,7 @@
-helpers do 
+helpers do
   def opponent_name
     opponent.name
-  end 
+  end
 
   def opponent_selection
     opponent.selection
@@ -10,4 +10,4 @@ helpers do
   def game_on?
     GAME.got_two_players?
   end
-end  
+end

@@ -4,8 +4,8 @@ end
 
 get '/two_player/start_game' do
   new_player = Player.new
-  GAME.assign_player(new_player)
   session[:player_id] = new_player.object_id
+  GAME.assign_player(new_player)
   erb :two_player
 end
 
