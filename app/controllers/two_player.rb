@@ -22,3 +22,8 @@ post '/two_player/game' do
   player.selection = params[:selection]
   erb :two_player
 end
+
+get '/two_player/reset_selections' do 
+  GAME.reset_selections
+  redirect 'two_player/reset_selections'
+end  

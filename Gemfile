@@ -7,6 +7,8 @@ gem 'sinatra-partial'
 gem 'thin'
 gem 'sinatra-contrib'
 gem 'json'
+gem 'faye-websocket'
+gem 'puma'
 
 group :development, :test do
   gem 'rubocop'

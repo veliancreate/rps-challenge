@@ -4,12 +4,7 @@
   <h4>Welcome <%= player_name %></h4>
   <% if game_on? %>
     <%= erb :'forms/choose_move' %>
-    <% if ready? %>
-      <%= result_message %>
-      <p>You chose <%= player_selection %>, and <%= opponent_name %> chose <%= opponent_selection %></p> 
-    <% else %>
-      <p>Waiting for <%= opponent_name %> to choose...</p>  
-    <% end %>
+    <%= erb :'two_player_result' %>
     <%= erb :'forms/quit' %>
   <% else %>
     <p>Waiting for an opponent to join the game...</p>

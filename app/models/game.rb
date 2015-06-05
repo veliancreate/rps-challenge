@@ -6,12 +6,17 @@ class Game
     @player2 = nil
   end
 
+  def reset_selections
+    @player1.selection = nil
+    @player2.selection = nil
+  end
+
   def ready?
-    @player1.selection && @player2.selection
+    !!@player1.selection && !!@player2.selection
   end
 
   def got_two_players?
-    @player1 && @player2
+    !!@player1 && !!@player2
   end
 
   def assign_player(player)

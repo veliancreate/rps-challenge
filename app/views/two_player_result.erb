@@ -1,0 +1,7 @@
+<% if ready? %>
+  <%= result_message %>
+  <h4>You chose <%= player_selection %>, and <%= opponent_name %> chose <%= opponent_selection %></h4> 
+  <h5><a href="/two_player/reset_selections">Go again!</a></h5>
+<% else %>
+  <p>Waiting for <%= opponent_name %> to choose...</p>  
+<% end %>
