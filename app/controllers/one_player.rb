@@ -1,26 +1,26 @@
-get '/one_player' do
+before '/one_player/*' do 
   @action = 'one_player'
-  player = Player.new
-  computer = Player.new
-  GAME.player1 = player
-  GAME.player2 = computer
-  session[:player_id] = player.object_id
+end  
+
+get '/one_player/start_game' do
+  new_player = Player.new
+  session[:player_id] = new_player.object_id
+  GAME.player1 = new_player
+  GAME.player2 = Player.new
   erb :one_player
 end
 
-post '/one_player/name' do
+post '/one_player/enter_name' do
   player.name = params[:name]
   redirect 'one_player/game'
 end
 
 get '/one_player/game' do
-  @action = 'one_player'
   erb :one_player
 end
 
 post '/one_player/game' do
-  @action = 'one_player'
   player.selection = params[:selection].to_sym
-  @computer_selection = GAME.player2.computer_selection
+  @computer_selection = opponent.computer_selection
   erb :one_player
 end

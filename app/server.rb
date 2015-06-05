@@ -12,6 +12,7 @@ require_relative 'controllers/one_player'
 require_relative 'controllers/two_player'
 
 require_relative 'helpers/application.rb'
+require_relative 'helpers/two_player.rb'
 
 enable :sessions
 set :session_secret, 'super secret'

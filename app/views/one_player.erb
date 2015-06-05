@@ -1,24 +1,13 @@
 <h2>One Player Game</h2>
 
-<% if player.name %>
-
-  <% if player.selection %>
-    <% if result == :draw %> 
-      <h2>Wooah, that one was a draw</h2>
-    <% elsif result == :player1 %>
-      <h2>Congratulations <%= player.name %>, you won!</h2>
-    <% else %>
-      <h2>Unlucky, <%= player.name %>, you lost</h2>  
-    <% end %>  
-     <p>You chose <%= player.selection.upcase %>, and the computer chose <%= @computer_selection.upcase %></p> 
+<% if player_name %>
+  <h4>Welcome <%= player_name %></h4> 
+  <%= erb :'forms/choose_move' %>
+  <% if player_selection %>
+    <%= result_message %>
+    <h5>You chose <%= player_selection %>, and the computer chose <%= @computer_selection %></h5> 
   <% end %> 
-
-  <%= erb :choose_move %>
-
-  <%= erb :quit %>
-
+  <%= erb :'forms/quit' %>     
 <% else %>
-  
-  <%= erb :name %>
-
-<% end %>  
+  <%= erb :'forms/enter_name' %>
+<% end %> 

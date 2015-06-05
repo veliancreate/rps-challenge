@@ -3,17 +3,17 @@
 <% if player_name %>
   <h4>Welcome <%= player_name %></h4>    
 <% else %>
-  <%= erb :name %>
+  <%= erb :'forms/enter_name' %>
 <% end %> 
 
 <% if game_on? %>
-  <%= erb :choose_move %>
+  <%= erb :'forms/choose_move' %>
   <% if result %>
     <p>You chose <%= player_selection %>, and <%= opponent_name %> chose <%= opponent_selection %></p> 
-    <%= erb :quit %>
   <% else %>
-    <p>Waiting for your <%= opponent_name %> to choose...</p>  
+    <p>Waiting for <%= opponent_name %> to choose...</p>  
   <% end %>
+  <%= erb :'forms/quit' %>
 <% else %>
   <p>Waiting for an opponent to join the game...</p>
 <% end %>    
