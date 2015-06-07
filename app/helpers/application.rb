@@ -8,11 +8,11 @@ helpers do
   end
 
   def player_selection
-    player.selection
+    player ? player.selection : false
   end
 
   def player_name
-    player.name
+    player ? player.name : false
   end
 
   def result
@@ -26,5 +26,17 @@ helpers do
   def result_message
     return 'Draw' if result == :draw
     result == player ? 'Win' : 'Lose'
+  end
+
+  def opponent_name
+    opponent ? opponent.name : false
+  end
+
+  def opponent_selection
+    opponent ? opponent.selection : false
+  end
+
+  def game_on?
+    GAME.game_on?
   end
 end

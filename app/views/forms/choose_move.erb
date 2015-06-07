@@ -1,7 +1,7 @@
 <% if !player_selection %>  
   <h2>Choose wisely...</h2> 
 
-  <form id="make-move" action='/<%= @action %>/game' method="post">
+  <form id="make-move" action='/<%= @action %>/selections' method="post">
     <button id="rock" name="selection" value="rock">Rock</button>
     <button id="paper" name="selection" value="paper">Paper</button>
     <button id="scissors" name="selection" value="scissors">Scissors</button>

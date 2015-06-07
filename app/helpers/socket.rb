@@ -20,11 +20,9 @@ module Sockets
 
         ws.on :message do |event|
           p [:message, event.data]
-          game_on = GAME.got_two_players?.to_s
-          if event.data == 'player joined'
-            @clients.each do |client|
-              client.send(game_on)
-            end
+          game_on = GAME.game_on?.to_s
+          @clients.each do |client|
+            client.send(game_on)
           end
         end
 
@@ -46,5 +44,5 @@ module Sockets
       json.each { |key, value| json[key] = ERB::Util.html_escape(value) }
       JSON.generate(json)
     end
-  end  
+  end
 end

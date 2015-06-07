@@ -18,12 +18,16 @@ get '/two_player/game' do
   erb :two_player
 end
 
-post '/two_player/game' do
+post '/two_player/selections' do
   player.selection = params[:selection]
-  erb :two_player
+  redirect 'two_player/game'
 end
 
-get '/two_player/reset_selections' do 
+get '/two_player/reset_selections' do
   GAME.reset_selections
-  redirect 'two_player/reset_selections'
-end  
+  redirect 'two_player/game'
+end
+
+get '/two_player/poll' do
+  body json ready: ready?, game_on: game_on?
+end

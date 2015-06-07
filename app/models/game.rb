@@ -12,11 +12,23 @@ class Game
   end
 
   def ready?
-    !!@player1.selection && !!@player2.selection
+    players_in? ? selections_chosen? : false
   end
 
-  def got_two_players?
-    !!@player1 && !!@player2
+  def game_on?
+    players_in? ? names_chosen? : false
+  end
+
+  def players_in?
+    !@player1.nil? && !@player2.nil?
+  end
+
+  def names_chosen?
+    @player1.name && @player2.name ? true : false
+  end
+
+  def selections_chosen?
+    @player1.selection && @player2.selection ? true : false
   end
 
   def assign_player(player)
@@ -33,6 +45,6 @@ class Game
 
   def check_selections
     winning_moves = { rock: :scissors, paper: :rock, scissors: :paper }
-    @player2.selection == winning_moves[@player1.selection] ? @player1 : @player2
+    @player2.selection == winning_moves[@player1.selection] ? @player2 : @player1
   end
 end
