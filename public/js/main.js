@@ -6,9 +6,10 @@ $(document).ready(function(){
 
   ws.onmessage = function(message) {
     var data = JSON.parse(message.data);
-    console.log(data);
-    if(data === true){
+    if(data.message === "true"){
       window.location.replace("/two_player/game");
+    }else if(data.message === "quit"){
+      window.location.replace("/");
     }else{
       ws.send("refresh");
     }
@@ -22,21 +23,12 @@ $(document).ready(function(){
     ws.send("reset selections");
   });
 
-  $.get("/two_player/poll", function(response){
-    ready = response.ready
-    if(ready === false){
-      readyPoll();
-    };  
+  $("#make-move").on("submit", function(event){
+    ws.send("made move");
   });
-  function readyPoll(){
-    $.get("/two_player/poll", function(response){
-      ready = response.ready
-      if(ready === false){
-        readyPoll();
-      }else{
-        window.location.replace('/two_player/game');
-      }
-    });  
-  };
+
+  $("#quit").on("submit", function(event){
+    ws.send("quit");
+  });
 });
   

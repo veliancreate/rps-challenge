@@ -20,9 +20,15 @@ module Sockets
 
         ws.on :message do |event|
           p [:message, event.data]
-          game_on = GAME.game_on?.to_s
-          @clients.each do |client|
-            client.send(game_on)
+          game_on = { message: GAME.game_on?.to_s }.to_json
+          ready = { message: GAME.ready?.to_s }.to_json
+          quit = { message: 'quit' }.to_json
+          if event.data == 'made move'
+            @clients.each { |client| client.send(ready) }
+          elsif event.data == 'quit'
+            @clients.each { |client| client.send(quit) }
+          else
+            @clients.each { |client| client.send(game_on) }
           end
         end
 
