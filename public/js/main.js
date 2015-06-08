@@ -1,6 +1,6 @@
 $(document).ready(function(){  
   var ready;
-  var scheme   = "ws://";
+  var scheme   = "wss://";
   var uri      = scheme + window.document.location.host + "/";
   var ws       = new WebSocket(uri);
 
