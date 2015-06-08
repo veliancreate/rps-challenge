@@ -23,8 +23,11 @@ module Sockets
           game_on = { message: GAME.game_on?.to_s }.to_json
           ready = { message: GAME.ready?.to_s }.to_json
           quit = { message: 'quit' }.to_json
+          reset_selections = { message: 'reset selections' }.to_json
           if event.data == 'made move'
             @clients.each { |client| client.send(ready) }
+          elsif event.data == 'reset selections'
+            @clients.each { |client| client.send(reset_selections) }
           elsif event.data == 'quit'
             @clients.each { |client| client.send(quit) }
           else

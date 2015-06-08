@@ -25,7 +25,8 @@ helpers do
 
   def result_message
     return 'Draw' if result == :draw
-    result == player ? 'Win' : 'Lose'
+    return 'Win' if result == player
+    return 'Lose' if result == opponent
   end
 
   def opponent_name

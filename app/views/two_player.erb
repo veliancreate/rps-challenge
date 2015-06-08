@@ -1,14 +1,15 @@
-<h2>Two Player Game</h2>
-
-<% if player_name %>
-  <h4>Welcome <%= player_name %></h4>
-  <% if game_on? %>
-    <%= erb :'forms/choose_move' %>
-    <%= erb :'two_player_result' %>
-    <%= erb :'forms/quit' %>
+<section class="col-xs-12">  
+  <h2>Two Player Game</h2>
+  <% if player_name %>
+    <h4>Welcome <%= player_name %></h4>
+    <% if game_on? %>
+      <%= erb :'forms/choose_move' %>
+      <%= erb :'two_player_result' %>
+      <%= erb :'forms/quit' %>
+    <% else %>
+      <p>Waiting for an opponent to join the game...</p>
+    <% end %>       
   <% else %>
-    <p>Waiting for an opponent to join the game...</p>
-  <% end %>       
-<% else %>
-  <%= erb :'forms/enter_name' %>
-<% end %>    
+    <%= erb :'forms/enter_name' %>
+  <% end %>
+</section>      

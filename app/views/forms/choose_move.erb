@@ -1,9 +1,10 @@
-<% if !player_selection %>  
-  <h2>Choose wisely...</h2> 
-
-  <form id="make-move" action='/<%= @action %>/selections' method="post">
-    <button id="rock" name="selection" value="rock">Rock</button>
-    <button id="paper" name="selection" value="paper">Paper</button>
-    <button id="scissors" name="selection" value="scissors">Scissors</button>
-  </form>
-<% end %>  
+<section class="row">  
+  <% if !player_selection %>  
+    <h2>Choose wisely...</h2> 
+    <form id="<%= @action %>-make-move" action='/<%= @action %>/selections' method="post">
+      <button id="rock" name="selection" class="selection col-xs-12 col-sm-4" value="rock"><img src="/images/rock.png" alt="Rock" /><br><p>Rock</p></button>
+      <button id="paper" name="selection" class="selection col-xs-12 col-sm-4" value="paper"><img src="/images/paper.png" alt="Paper" /><br><p>Paper</p></button>
+      <button id="scissors" name="selection" class="selection col-xs-12 col-sm-4" value="scissors"><img src="/images/scissors.png" alt="Scissors" /><br><p>Scissors</p></button>
+    </form>
+  <% end %>  
+</section>  

@@ -1,13 +1,15 @@
-<h2>One Player Game</h2>
-
-<% if player_name %>
-  <h4>Welcome <%= player_name %></h4> 
-  <%= erb :'forms/choose_move' %>
-  <% if player_selection %>
-    <%= result_message %>
-    <h5>You chose <%= player_selection %>, and the computer chose <%= @computer_selection %></h5> 
+<section class="col-xs-12">  
+  <h2>One Player Game</h2>
+  <% if player_name %>
+    <h4>Welcome <%= player_name %></h4> 
+    <%= erb :'forms/choose_move' %>
+    <% if player_selection %>
+      <h1 class="result-message"><%= result_message %></h1>
+      <h5>You chose <%= player_selection %>, and the computer chose <%= @computer_selection %></h5> 
+      <h5><a id="one-player-reset-selections" href="/one_player/reset_selections">Go again!</a></h5>
+    <% end %> 
+    <%= erb :'forms/quit' %>     
+  <% else %>
+    <%= erb :'forms/enter_name' %>
   <% end %> 
-  <%= erb :'forms/quit' %>     
-<% else %>
-  <%= erb :'forms/enter_name' %>
-<% end %> 
+</section>  

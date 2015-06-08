@@ -19,8 +19,14 @@ get '/one_player/game' do
   erb :one_player
 end
 
-post '/one_player/game' do
+post '/one_player/selections' do
   player.selection = params[:selection].to_sym
   @computer_selection = opponent.computer_selection
   erb :one_player
 end
+
+get '/one_player/reset_selections' do
+  GAME.reset_selections
+  redirect 'one_player/game'
+end
+

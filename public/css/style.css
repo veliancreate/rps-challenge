@@ -1,3 +1,62 @@
 header{
-  
+  text-align: center;
+  padding: 20px 0;
+}
+h1{
+  text-transform: uppercase;
+}
+main{
+  text-align: center;
+}
+#game-type a{
+  padding: 20px;
+  border: solid 1px;
+  border-radius: 5px; 
+  display: inline-block;
+  text-transform: uppercase;
+  transition: 1s;
+}
+#game-type a:nth-child(2){
+  margin-left: 40px;
+}
+#game-type a:hover{
+  background-color: #000;
+  color: #fff;
+}
+h1.result-message{
+  font-size: 25rem;
+}
+
+input[type="submit"]{
+  transition: 1s;
+}
+input[type="submit"]:hover{
+  background-color: #000;
+  color: #fff;
+}
+button{
+  transition: 1s;
+  height: 100%;
+}
+button:hover{
+  background-color: #000;
+  color: #fff;
+}
+button img{
+  max-width: 70%;
+}
+
+button.selection{
+  border: none;
+}
+button.selection:hover{
+  background-color: initial;
+  color: initial;
+}
+button p{
+  transition: 1s;
+}
+button.selection:hover > p{
+  background-color: #000;
+  color: #fff;
 }

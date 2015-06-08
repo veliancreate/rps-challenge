@@ -1,5 +1,5 @@
-<h2>Please enter your name below!</h2>
-<form id="enter-name" action='/<%= @action %>/enter_name' method="post">
+<h2>Please enter your name</h2>
+<form id="<%= @action %>-enter-name" action='/<%= @action %>/enter_name' method="post">
   <input id="name" type="text" name="name">
   <input type="submit" value="Submit">
 </form>

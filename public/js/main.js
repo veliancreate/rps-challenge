@@ -8,26 +8,28 @@ $(document).ready(function(){
     var data = JSON.parse(message.data);
     if(data.message === "true"){
       window.location.replace("/two_player/game");
+    }else if(data.message === "reset selections"){
+      window.location.replace("/two_player/reset_selections");  
     }else if(data.message === "quit"){
-      window.location.replace("/");
+      window.location.replace("/reset_game");
     }else{
       ws.send("refresh");
     }
   };
 
-  $("#enter-name").on("submit", function(event) {
+  $("#two_player-enter-name").on("submit", function(event) {
     ws.send("player joined");
   });
 
-  $("#reset-selections").click(function(event) {
+  $("#two_player-reset-selections").click(function(event) {
     ws.send("reset selections");
   });
 
-  $("#make-move").on("submit", function(event){
+  $("#two_player-make-move").on("submit", function(event){
     ws.send("made move");
   });
 
-  $("#quit").on("submit", function(event){
+  $("#two_player-quit").on("submit", function(event){
     ws.send("quit");
   });
 });
