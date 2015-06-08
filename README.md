@@ -1,3 +1,17 @@
+# Rock Paper Scissors
+
+## Tech used
+
+Ruby, Sinatra, WebSockets (Faye), CSS, JSON
+
+## Lessons learned
+
+I found that creating the one player version was relatively easy. However, not so for the two player - particularly with real time page updates in reponse to user input. Initially I used some HTML on the page to refresh if a condition is true, however wasn't particularly keen on that, so turned to polling using JQuery, which worked but seemed a little clunky so I thought I'd give web sockets a go. Unfortunately I have no idea at present how to test websockets. As things stand, the results using Faye are a little unpredictable. For instance if all the steps are followed in sequence it works fine, however everything will break if the one of the users does something unpredictable - and I have not figured out how best to rescue.
+
+## Screenshot
+
+![screenshot](screenshot.png)
+
 # Challenge: Rōnin Badge Test
 
 Knowing how to build web applications is getting us almost there as web developers!
