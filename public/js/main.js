@@ -13,7 +13,7 @@ $(document).ready(function(){
     }else if(data.message === "quit"){
       window.location.replace("/reset_game");
     }else{
-      ws.send("refresh");
+      setTimeout(function(){ ws.send("refresh");}, 2000);
     }
   };
 
